@@ -1,0 +1,6 @@
+.navbar {
+    display: flex;
+    justify-content: flex-end;
+    background-color: #f2f2f2;
+    padding: 10px;
+}
