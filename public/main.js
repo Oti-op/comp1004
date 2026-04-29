@@ -23,7 +23,8 @@ function handleInput() {
     return;
   }
 
-  const intent = detectIntent(value);
+  const menuShortcuts = { "1": "tracking", "2": "inventory", "3": "invoice", "4": "report", "5": "issue" };
+  const intent = menuShortcuts[value] || detectIntent(value);
 
   switch (intent) {
     case "greetings":
