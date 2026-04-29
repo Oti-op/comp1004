@@ -4,33 +4,66 @@
   <meta charset="UTF-8">
   <title>OSCOM Distribution Chatbot</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <!-- jsPDF for generating PDF reports -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <link rel="stylesheet" href="style.css">
 </head>
 
-<body class="bg-gray-100 flex justify-center items-center h-screen">
+<body class="flex flex-col justify-center items-center min-h-screen">
 
-  <div class="bg-white w-96 h-[500px] shadow-lg rounded-xl flex flex-col">
+  <!-- Page title above the chatbot -->
+  <h1 class="text-white text-2xl font-bold mb-1 tracking-wide">OSCOM Distribution</h1>
+  <p class="text-indigo-300 text-sm mb-5">Smart Supply Chain Assistant</p>
 
-    <!-- header -->
-    <div class="bg-blue-600 text-white p-4 rounded-t-xl">
-      <h2 class="text-lg font-semibold">OSCOM Distribution Assistant</h2>
+  <!-- Chat window -->
+  <div class="bg-white w-96 h-[560px] shadow-2xl rounded-2xl flex flex-col overflow-hidden">
+
+    <!-- Header -->
+    <div class="p-4 flex justify-between items-center" style="background: linear-gradient(90deg, #2563eb, #4f46e5)">
+      <div>
+        <h2 class="text-base font-semibold text-white">OSCOM Assistant</h2>
+        <p class="text-blue-200 text-xs">Online &bull; Always ready to help</p>
+      </div>
+      <!-- Download report button in header -->
+      <button onclick="downloadInventoryPDF()"
+        class="bg-green-500 hover:bg-green-400 text-white text-xs px-3 py-1.5 rounded-lg font-medium">
+        Download Report
+      </button>
     </div>
 
-    <!-- chat area -->
-    <div id="chat" class="flex-1 p-4 overflow-y-auto space-y-2"></div>
+    <!-- Chat messages area -->
+    <div id="chat" class="flex-1 p-4 overflow-y-auto space-y-2 bg-slate-50"></div>
 
-    <!-- input -->
-    <div class="p-3 border-t flex">
-      <input id="userInput" type="text" placeholder="How can I help?"  class="flex-1 border rounded-lg p-2"/>
-      <button onclick="handleInput()" class="ml-2 bg-blue-600 text-white px-4 rounded-lg"> Send </button>
+    <!-- Input bar -->
+    <div class="p-3 border-t border-gray-200 flex gap-2 bg-white">
+      <input
+        id="userInput"
+        type="text"
+        placeholder="Type a message..."
+        class="flex-1 border border-gray-300 rounded-xl px-3 py-2 text-sm"
+        onkeydown="if(event.key === 'Enter') handleInput()"
+      />
+      <button
+        onclick="handleInput()"
+        class="bg-indigo-600 hover:bg-indigo-500 text-white px-4 rounded-xl text-sm font-medium">
+        Send
+      </button>
     </div>
 
-    <!-- file -->
-    <input type="file" id="fileUpload" class="hidden"/>
+    <!-- Hidden file input (CSV and PDF) -->
+    <input type="file" id="fileUpload" class="hidden" accept=".csv,.pdf" />
 
   </div>
 
+  <p class="text-indigo-300 text-xs mt-4 opacity-60">OSCOM Distribution System &bull; v1.0</p>
+
+  <!-- Scripts loaded in dependency order -->
   <script src="data.js"></script>
-  <script src="script.js"></script>
+  <script src="responses.js"></script>
+  <script src="intents.js"></script>
+  <script src="chat.js"></script>
+  <script src="fileHandler.js"></script>
+  <script src="main.js"></script>
 
 </body>
 </html>

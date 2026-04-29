@@ -1,8 +1,99 @@
-.navbar {
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    align-items: flex-end;
-    background-color: #f2f2f2;
-    padding: 10px;
+/* === Background === */
+body {
+  background: linear-gradient(135deg, #1e1b4b 0%, #3730a3 45%, #1e40af 100%);
+  min-height: 100vh;
+  font-family: sans-serif;
+}
+
+/* Decorative background blobs */
+body::before {
+  content: '';
+  position: fixed;
+  width: 400px;
+  height: 400px;
+  background: rgba(129, 140, 248, 0.15);
+  border-radius: 50%;
+  top: -150px;
+  left: -150px;
+  pointer-events: none;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  width: 300px;
+  height: 300px;
+  background: rgba(167, 139, 250, 0.15);
+  border-radius: 50%;
+  bottom: -100px;
+  right: -100px;
+  pointer-events: none;
+}
+
+/* === Chat Bubbles === */
+.chat-bubble-bot {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #1e293b;
+  padding: 10px 14px;
+  border-radius: 16px;
+  border-top-left-radius: 4px;
+  max-width: 80%;
+  font-size: 0.875rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.07);
+  animation: slideIn 0.2s ease;
+}
+
+.chat-bubble-user {
+  background: linear-gradient(135deg, #4f46e5, #2563eb);
+  color: white;
+  padding: 10px 14px;
+  border-radius: 16px;
+  border-top-right-radius: 4px;
+  max-width: 80%;
+  font-size: 0.875rem;
+  margin-left: auto;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  animation: slideIn 0.2s ease;
+}
+
+/* === Animations === */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Buttons === */
+button {
+  transition: all 0.15s ease;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+/* === Scrollbar === */
+#chat::-webkit-scrollbar {
+  width: 4px;
+}
+
+#chat::-webkit-scrollbar-track {
+  background: #f8fafc;
+}
+
+#chat::-webkit-scrollbar-thumb {
+  background: #c7d2fe;
+  border-radius: 10px;
+}
+
+/* === Input focus ring === */
+#userInput:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #818cf8;
 }
