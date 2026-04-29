@@ -198,6 +198,6 @@ https://github.com/Oti-op/comp1004
 
 ## Author
 
-Created for **COMP1004 Computing Practice Project**.
+Created by Otitechukwuka Oseji for **COMP1004 Computing Practice Project**.
 
 ---
