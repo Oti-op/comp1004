@@ -14,7 +14,7 @@ function handleInput() {
     return;
   }
 
-  // Context-aware: "how many X do you have?" after checking inventory
+  // "how many X do you have?" after checking inventory
   if (value.toLowerCase().includes("how many") && memory.lastProduct) {
     const item = inventory.find(i => i.name === memory.lastProduct);
     if (item) {

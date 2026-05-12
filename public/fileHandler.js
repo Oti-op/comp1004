@@ -59,6 +59,18 @@ function handleFileRead(file) {
     };
     reader.readAsText(file);
 
+  } else if (ext === "json") {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      try {
+        const data = JSON.parse(e.target.result);
+        addMessage(`File "${file.name}" uploaded successfully.\n\nContents:\n${JSON.stringify(data, null, 2)}`);
+      } catch (err) {
+        addMessage("That file doesn't look like valid JSON. Please check it and try again.");
+      }
+    };
+    reader.readAsText(file);
+
   } else if (ext === "pdf") {
     addMessage(`PDF "${file.name}" uploaded successfully.\n\nNote: PDF content preview isn't supported in the browser. Upload a CSV file to see its contents displayed here.`);
 

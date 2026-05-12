@@ -21,5 +21,5 @@ function addMessage(text, sender = "bot") {
 }
 
 function showMenu() {
-  addMessage("How can I help you?\n1. Track Order\n2. Check Inventory\n3. Upload Invoice (CSV or PDF)\n4. Download Inventory Report\n5. Report Issue");
+  addMessage("How can I help you?\n1. Track Order\n2. Check Inventory\n3. Upload Invoice (CSV, PDF or JSON)\n4. Download Inventory Report\n5. Report Issue");
 }
